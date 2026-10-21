@@ -11,7 +11,7 @@ services:
               count: all
               capabilities: [gpu]
     volumes:
-      - ../../../:/workspace
+      - ../../../../:/workspace
       - ~/models:/models
       - ~/datasets:/data
     ports:

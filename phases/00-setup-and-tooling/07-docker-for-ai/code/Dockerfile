@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 nvidia/cuda:12.4.1-devel-ubuntu22.04
+FROM --platform=linux/amd64 nvidia/cuda:12.4.1-runtime-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
@@ -41,6 +41,9 @@ RUN python -m pip install --no-cache-dir \
     datasets \
     accelerate \
     safetensors
+
+RUN python -m pip install --no-cache-dir --ignore-installed "blinker==1.9.0" \
+    && python -m pip install --no-cache-dir flask
 
 WORKDIR /workspace
 
